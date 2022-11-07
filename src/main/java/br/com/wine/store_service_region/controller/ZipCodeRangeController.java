@@ -1,12 +1,9 @@
 package br.com.wine.store_service_region.controller;
 
 import static java.lang.String.format;
-
 import java.net.URI;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.wine.store_service_region.dto.NewZipCodeRangeRequest;
 import br.com.wine.store_service_region.dto.StoreCodeDto;
 import br.com.wine.store_service_region.dto.ZipCodeRangeDto;

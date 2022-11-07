@@ -5,10 +5,15 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
+
+import br.com.wine.store_service_region.validation.StartRangeCantBeBiggerThanEndRange;
+import br.com.wine.store_service_region.validation.ZipCodeRangesCantBeInUse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
+@StartRangeCantBeBiggerThanEndRange
+@ZipCodeRangesCantBeInUse
 public class NewZipCodeRangeRequest {
 		
 	@NotBlank
