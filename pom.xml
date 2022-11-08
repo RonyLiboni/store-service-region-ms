@@ -12,7 +12,7 @@
 	<artifactId>store-service-region</artifactId>
 	<version>0.0.1</version>
 	<name>store-service-region-ms</name>
-	<description>https://github.com/RonyLiboni/store-service-region-ms.git</description>
+	<description>https://github.com/RonyLiboni/zip-code-ranges-ms.git</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
