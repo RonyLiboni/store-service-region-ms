@@ -13,6 +13,7 @@ import br.com.wine.store_service_region.dto.NewZipCodeRangeRequest;
 import br.com.wine.store_service_region.dto.StoreCodeDto;
 import br.com.wine.store_service_region.dto.ZipCodeRangeDto;
 import br.com.wine.store_service_region.entity.ZipCodeRange;
+import br.com.wine.store_service_region.exception.ZipCodeNotRegisteredException;
 import br.com.wine.store_service_region.repository.ZipCodeRangeRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -71,7 +72,7 @@ public class ZipCodeRangeService {
 	
 	private ZipCodeRange getByZipCode(Integer zipCode) {
 		return zipCodeRangeRepository.getByZipCode(zipCode)
-				.orElseThrow(()-> new EntityNotFoundException(String.format("Any store code was found to zip code '%s' ", zipCode))); // MELHORAR EXCEPTION
+				.orElseThrow(()-> new ZipCodeNotRegisteredException(String.format("Any store serving in zip code '%s' was found! ", zipCode)));
 	}
 	
 }
