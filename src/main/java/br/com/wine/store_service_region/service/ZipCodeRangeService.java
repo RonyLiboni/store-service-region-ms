@@ -74,5 +74,18 @@ public class ZipCodeRangeService {
 		return zipCodeRangeRepository.getByZipCode(zipCode)
 				.orElseThrow(()-> new ZipCodeNotRegisteredException(String.format("Any store serving in zip code '%s' was found! ", zipCode)));
 	}
+
+	public void deleteStoreCode(String storeCode) {
+		deleteAll(findByStoreCode(storeCode));
+	}
+	
+	private void deleteAll(List<ZipCodeRange> zipCodeRanges) {
+		zipCodeRangeRepository.deleteAllInBatch(zipCodeRanges);
+	}
+	
+	private List<ZipCodeRange> findByStoreCode(String storeCode) {
+		return zipCodeRangeRepository.findByStoreCode(storeCode)
+				.orElseThrow(()-> new EntityNotFoundException(String.format("There are no zip code ranges with store code '%s' !", storeCode)));
+	}
 	
 }
