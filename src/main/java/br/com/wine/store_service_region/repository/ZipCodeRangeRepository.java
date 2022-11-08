@@ -8,7 +8,7 @@ import br.com.wine.store_service_region.entity.ZipCodeRange;
 
 public interface ZipCodeRangeRepository extends JpaRepository<ZipCodeRange, Long> {
 	
-	@Query("from ZipCodeRange z where :zipCode >= z.startRange and :zipCode <= z.endRange")
+	@Query("from ZipCodeRange z where :zipCode between z.startRange and z.endRange")
 	Optional<ZipCodeRange> getByZipCode(@Param("zipCode") Integer zipCode);
 	
 }
