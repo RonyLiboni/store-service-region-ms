@@ -1,12 +1,9 @@
 package br.com.wine.store_service_region.controller;
 
 import static java.lang.String.format;
-
 import java.net.URI;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.wine.store_service_region.annotation.documentation.DeleteMappingDocumentation;
 import br.com.wine.store_service_region.annotation.documentation.GetMappingDocumentation;
 import br.com.wine.store_service_region.annotation.documentation.PostMappingDocumentation;
@@ -65,6 +61,13 @@ public class ZipCodeRangeController {
 	@DeleteMappingDocumentation(summary= "Deletes a zip code range by its id.")
 	public ResponseEntity<Void> deleteAnZipCodeRangeById(@PathVariable("id") Long id){
 		zipCodeRangeController.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping("/store/{storeCode}")
+	@DeleteMappingDocumentation(summary= "Deletes all zip code ranges with same store code.")
+	public ResponseEntity<Void> deleteAnZipCodeRangeById(@PathVariable("storeCode") String storeCode){
+		zipCodeRangeController.deleteStoreCode(storeCode);
 		return ResponseEntity.noContent().build();
 	}
 	
